@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  mysql:
+    image: mysql:5.7.23
+    ports:
+      - "5306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+    ports:
+      - 58080:80
+
+  php-apache:
+    build: ./php
+    volumes:
+      - ./htdocs:/var/www/html
+    ports:
+      - "5080:80"
+    env_file:
+      - ./php/.env
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
