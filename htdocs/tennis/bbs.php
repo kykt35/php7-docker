@@ -1,4 +1,6 @@
 <?php
+  include 'includes/login.php';
+
   $num = 10;
 
   $dsn = 'mysql:host=mysql; dbname=tennis; charset=utf8';
@@ -11,7 +13,6 @@
   }
 
   try {
-
     $db = new PDO($dsn, $user, $password);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -36,7 +37,8 @@
     <h1>掲示板</h1>
      <p><a href="index.php">トップページへ戻る</a></p>
      <form action="write.php" method="post">
-       <p>名前: <input type="text" name="name"></p>
+       <p>名前: <input type="text" name="name" value=
+       "<?php echo $_COOKIE['name'] ?>"></p>
        <p>タイトル: <input type="text" name="title"></p>
        <textarea type="text" name="body"></textarea>
        <p>削除パスワード: <input type="text" name="pass"></p>

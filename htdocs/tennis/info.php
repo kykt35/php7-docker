@@ -1,4 +1,5 @@
 <?php
+  include 'includes/login.php';
   $fp = fopen("info.txt", "r");
   $lines = array();
 

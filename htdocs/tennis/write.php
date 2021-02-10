@@ -1,4 +1,6 @@
 <?php
+  include 'includes/login.php';
+
   $name = $_POST['name'];
   $title = $_POST['title'];
   $body = $_POST['body'];
@@ -13,6 +15,7 @@
       header('Location: bbs.php');
       exit();
     }
+    setcookie('name', $name, time() + 60 * 60 * 24 * 30);
 
   // database connect
   $dsn = 'mysql:host=mysql; dbname=tennis; charset=utf8';

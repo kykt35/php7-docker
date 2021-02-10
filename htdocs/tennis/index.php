@@ -1,4 +1,6 @@
 <?php
+  include 'includes/login.php';
+
   $fp = fopen("info.txt", "r");
 ?>
 <html>
@@ -8,7 +10,10 @@
   </head>
   <body>
     <h1>テニスサークル交流サイト</h1>
-    <p><a href="bbs.php">掲示板</a></p>
+    <p>
+      <a href="bbs.php">掲示板</a>
+      <a href="logout.php">ログアウト</a>
+    </p>
     <h2>お知らせ</h2>
     <?php
       if ($fp) {
