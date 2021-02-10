@@ -8,6 +8,7 @@
   </head>
   <body>
     <h1>テニスサークル交流サイト</h1>
+    <p><a href="bbs.php">掲示板</a></p>
     <h2>お知らせ</h2>
     <?php
       if ($fp) {
